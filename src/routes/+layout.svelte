@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import AppShell from '$lib/components/layout/AppShell.svelte';
 	import { siteConfig } from '$lib/config/site';
