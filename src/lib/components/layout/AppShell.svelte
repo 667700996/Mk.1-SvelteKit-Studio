@@ -3,9 +3,9 @@
 	import GlobalNav from './GlobalNav.svelte';
 	import SiteFooter from './SiteFooter.svelte';
 
-	type Theme = 'light' | 'dark';
+	type Theme = 'studio-light' | 'studio-dark';
 
-	let theme: Theme = 'light';
+	let theme: Theme = 'studio-light';
 	let userHasPreference = false;
 
 	const isBrowser = typeof window !== 'undefined';
@@ -28,23 +28,33 @@
 
 	function resolveInitialTheme(): Theme {
 		if (!isBrowser) {
-			return 'light';
+			return 'studio-light';
 		}
 
 		const stored = window.localStorage.getItem('theme');
 
-		if (stored === 'light' || stored === 'dark') {
+		if (stored === 'studio-light' || stored === 'studio-dark') {
 			userHasPreference = true;
 			return stored;
+		}
+
+		if (stored === 'light') {
+			userHasPreference = true;
+			return 'studio-light';
+		}
+
+		if (stored === 'dark') {
+			userHasPreference = true;
+			return 'studio-dark';
 		}
 
 		userHasPreference = false;
 
 		if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
-			return 'dark';
+			return 'studio-dark';
 		}
 
-		return 'light';
+		return 'studio-light';
 	}
 
 	onMount(() => {
@@ -55,7 +65,7 @@
 
 		const handlePreferenceChange = (event: MediaQueryListEvent) => {
 			if (!userHasPreference) {
-				applyTheme(event.matches ? 'dark' : 'light');
+				applyTheme(event.matches ? 'studio-dark' : 'studio-light');
 			}
 		};
 
@@ -72,10 +82,11 @@
 </script>
 
 <div data-theme={theme} class="min-h-screen bg-base-100 text-base-content transition-colors">
+	<a href="#page-content" class="skip-link">Skip to content</a>
 	<div class="flex min-h-screen flex-col">
 		<GlobalNav {theme} on:themeChange={handleThemeChange} />
 
-		<main class="flex-1">
+		<main id="page-content" tabindex="-1" class="flex-1 focus:outline-none">
 			<slot />
 		</main>
 

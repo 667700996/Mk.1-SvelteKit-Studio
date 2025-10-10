@@ -2,9 +2,9 @@
 	import { createEventDispatcher } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
-	type Theme = 'light' | 'dark';
+	type Theme = 'studio-light' | 'studio-dark';
 
-	export let theme: Theme = 'light';
+	export let theme: Theme = 'studio-light';
 
 	const dispatch = createEventDispatcher<{ themeChange: Theme }>();
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Sora:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,9 +9,12 @@
 		@apply scroll-smooth;
 	}
 
-	html,
-	body {
+	html {
 		@apply bg-base-100 text-base-content antialiased;
+	}
+
+	body {
+		@apply font-sans text-base leading-relaxed;
 	}
 
 	h1,
@@ -28,9 +33,28 @@
 	a {
 		@apply transition-colors duration-200;
 	}
+
+	abbr[title] {
+		@apply border-b border-dashed border-base-content/40 no-underline;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
 }
 
 @layer components {
+	.skip-link {
+		@apply absolute left-4 top-4 z-[100] -translate-y-20 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-content shadow-lg transition-transform focus-visible:translate-y-0;
+	}
+
 	.eyebrow {
 		@apply text-xs font-semibold uppercase tracking-[0.35em] text-primary/70;
 	}

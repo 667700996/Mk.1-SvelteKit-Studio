@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	type Theme = 'light' | 'dark';
+	type Theme = 'studio-light' | 'studio-dark';
 
-	export let theme: Theme = 'light';
+	export let theme: Theme = 'studio-light';
 
 	const dispatch = createEventDispatcher<{ toggle: Theme }>();
 
 	function toggleTheme() {
-		const nextTheme: Theme = theme === 'light' ? 'dark' : 'light';
+		const nextTheme: Theme = theme === 'studio-light' ? 'studio-dark' : 'studio-light';
 		dispatch('toggle', nextTheme);
 	}
 </script>
@@ -19,9 +19,10 @@
 	on:click={toggleTheme}
 	aria-label="Toggle color theme"
 	aria-live="polite"
+	aria-pressed={theme === 'studio-dark'}
 >
 	<span class="sr-only">Toggle theme</span>
-	{#if theme === 'light'}
+	{#if theme === 'studio-light'}
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-5 w-5 text-primary"
