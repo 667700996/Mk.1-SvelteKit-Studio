@@ -1,7 +1,7 @@
 ---
-title: "My First Blog Post"
-date: "2025-10-10"
-description: "This is the very first post on this brand new blog."
+title: 'My First Blog Post'
+date: '2025-10-10'
+description: 'This is the very first post on this brand new blog.'
 ---
 
 ## Welcome!

@@ -3,47 +3,47 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    @apply scroll-smooth;
-  }
+	:root {
+		@apply scroll-smooth;
+	}
 
-  html,
-  body {
-    @apply bg-base-100 text-base-content antialiased;
-  }
+	html,
+	body {
+		@apply bg-base-100 text-base-content antialiased;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-semibold tracking-tight text-base-content;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-semibold tracking-tight text-base-content;
+	}
 
-  p {
-    @apply leading-relaxed;
-  }
+	p {
+		@apply leading-relaxed;
+	}
 
-  a {
-    @apply transition-colors duration-200;
-  }
+	a {
+		@apply transition-colors duration-200;
+	}
 }
 
 @layer components {
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.35em] text-primary/70;
-  }
+	.eyebrow {
+		@apply text-xs font-semibold uppercase tracking-[0.35em] text-primary/70;
+	}
 
-  .surface-card {
-    @apply rounded-2xl border border-base-300/70 bg-base-100/80 p-6 shadow-sm backdrop-blur;
-  }
+	.surface-card {
+		@apply rounded-2xl border border-base-300/70 bg-base-100/80 p-6 shadow-sm backdrop-blur;
+	}
 
-  .surface-panel {
-    @apply rounded-3xl border border-base-200/70 bg-base-100/70 p-8 shadow-lg backdrop-blur;
-  }
+	.surface-panel {
+		@apply rounded-3xl border border-base-200/70 bg-base-100/70 p-8 shadow-lg backdrop-blur;
+	}
 
-  .link-cta {
-    @apply inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform hover:translate-x-1;
-  }
+	.link-cta {
+		@apply inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform hover:translate-x-1;
+	}
 }
