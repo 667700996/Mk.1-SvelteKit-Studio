@@ -2,6 +2,11 @@
 title: 'Exploring SvelteKit and daisyUI'
 date: '2025-10-11'
 description: 'A look into the powerful combination of SvelteKit and daisyUI for rapid web development.'
+tags:
+  - sveltekit
+  - tailwind
+  - workflows
+category: 'Process'
 ---
 
 ## Powerful Tools
