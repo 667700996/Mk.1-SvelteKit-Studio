@@ -19,7 +19,6 @@ type PostEntry = PostMetadata & {
 	tags: string[];
 };
 
-const POSTS_GLOB = '/src/posts/*.md';
 const AVERAGE_READING_SPEED = 200; // words per minute
 
 function normalizeDate(value: unknown): string | null {
@@ -55,7 +54,7 @@ function deriveReadingStats(html: string) {
 }
 
 export async function getAllPosts(): Promise<PostEntry[]> {
-	const modules = import.meta.glob<PostModule>(POSTS_GLOB);
+	const modules = import.meta.glob<PostModule>('/src/posts/*.md');
 
 	const posts = await Promise.all(
 		Object.entries(modules).map(async ([path, resolver]) => {
@@ -92,7 +91,7 @@ export async function getRecentPosts(limit = 3): Promise<PostEntry[]> {
 export async function getPostBySlug(
 	slug: string
 ): Promise<(PostEntry & { component: PostModule['default'] }) | null> {
-	const modules = import.meta.glob<PostModule>(POSTS_GLOB);
+	const modules = import.meta.glob<PostModule>('/src/posts/*.md');
 	const resolver = modules[`/src/posts/${slug}.md`];
 
 	if (!resolver) {
