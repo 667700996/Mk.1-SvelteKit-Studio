@@ -4,6 +4,7 @@ type PostMetadata = {
 	description?: string;
 	tags?: string[];
 	category?: string;
+	author?: string;
 	draft?: boolean;
 	readingTime?: number;
 	wordCount?: number;
@@ -17,6 +18,7 @@ type PostEntry = PostMetadata & {
 	readingTime: number;
 	wordCount: number;
 	tags: string[];
+	author: string;
 };
 
 const AVERAGE_READING_SPEED = 200; // words per minute
@@ -76,7 +78,8 @@ export async function getAllPosts(): Promise<PostEntry[]> {
 					typeof typedMetadata.readingTime === 'number' ? typedMetadata.readingTime : minutes,
 				wordCount: typeof typedMetadata.wordCount === 'number' ? typedMetadata.wordCount : words,
 				tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : [],
-				category: typedMetadata.category ?? 'Uncategorized'
+				category: typedMetadata.category ?? 'Uncategorized',
+				author: typedMetadata.author ?? 'Mk.1 Studio'
 			};
 		})
 	);
@@ -116,7 +119,8 @@ export async function getPostBySlug(
 			typeof typedMetadata.readingTime === 'number' ? typedMetadata.readingTime : minutes,
 		wordCount: typeof typedMetadata.wordCount === 'number' ? typedMetadata.wordCount : words,
 		tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : [],
-		category: typedMetadata.category ?? 'Uncategorized'
+		category: typedMetadata.category ?? 'Uncategorized',
+		author: typedMetadata.author ?? 'Mk.1 Studio'
 	};
 }
 

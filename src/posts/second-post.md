@@ -7,6 +7,7 @@ tags:
   - tailwind
   - workflows
 category: 'Process'
+author: 'Jane Smith'
 ---
 
 ## Powerful Tools

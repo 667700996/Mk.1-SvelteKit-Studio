@@ -6,6 +6,7 @@ tags:
   - studio
   - welcome
 category: 'Announcements'
+author: 'John Doe'
 ---
 
 ## Welcome!
