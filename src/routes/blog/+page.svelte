@@ -3,9 +3,20 @@
 
 	export let data;
 
+	let searchTerm = '';
 	const posts = data.posts ?? [];
-	const featuredPost = posts[0];
-	const remainingPosts = posts.slice(1);
+
+	$: filteredPosts = posts.filter(post => {
+		if (searchTerm.length < 2) return true;
+		return (
+			post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			post.category.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+	});
+
+	$: featuredPost = filteredPosts[0];
+	$: remainingPosts = filteredPosts.slice(1);
 
 	const tagPool = Array.from(
 		new Set(
@@ -60,7 +71,12 @@
 		<div class="grid gap-8 lg:grid-cols-[1.2fr_minmax(0,1fr)] lg:items-end">
 			<article class="surface-panel flex h-full flex-col justify-between bg-base-100/80">
 				<div class="space-y-4">
-					<span class="eyebrow text-primary/80">Featured</span>
+					<div class="flex gap-4">
+						<span class="eyebrow text-primary/80">Featured</span>
+						<a href={`/blog/category/${featuredPost.category?.toLowerCase()}`}>
+							<span class="eyebrow text-accent/80">{featuredPost.category}</span>
+						</a>
+					</div>
 					<h2 class="text-3xl font-semibold sm:text-4xl">{featuredPost.title}</h2>
 					<p class="text-base text-base-content/70">{featuredPost.description}</p>
 				</div>
@@ -136,6 +152,11 @@
 		{#each remainingPosts as post}
 			<article class="surface-card flex h-full flex-col justify-between">
 				<div class="space-y-3">
+					<div class="flex justify-between">
+						<a href={`/blog/category/${post.category?.toLowerCase()}`}>
+							<span class="eyebrow text-accent/80">{post.category}</span>
+						</a>
+					</div>
 					<div
 						class="flex items-center gap-3 text-xs uppercase tracking-widest text-base-content/60"
 					>

@@ -40,7 +40,12 @@
 			Back to journal
 		</a>
 		<div class="space-y-3">
-			<span class="eyebrow text-secondary/80">Journal Entry</span>
+			<div class="flex gap-4">
+				<span class="eyebrow text-secondary/80">Journal Entry</span>
+				<a href={`/blog/category/${data.category?.toLowerCase()}`}>
+					<span class="eyebrow text-accent/80">{data.category}</span>
+				</a>
+			</div>
 			<h1 class="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{data.title}</h1>
 			{#if data.description}
 				<p class="max-w-3xl text-base text-base-content/70 sm:text-lg">{data.description}</p>

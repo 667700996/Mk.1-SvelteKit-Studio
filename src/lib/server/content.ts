@@ -75,7 +75,8 @@ export async function getAllPosts(): Promise<PostEntry[]> {
 				readingTime:
 					typeof typedMetadata.readingTime === 'number' ? typedMetadata.readingTime : minutes,
 				wordCount: typeof typedMetadata.wordCount === 'number' ? typedMetadata.wordCount : words,
-				tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : []
+				tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : [],
+				category: typedMetadata.category ?? 'Uncategorized'
 			};
 		})
 	);
@@ -114,7 +115,8 @@ export async function getPostBySlug(
 		readingTime:
 			typeof typedMetadata.readingTime === 'number' ? typedMetadata.readingTime : minutes,
 		wordCount: typeof typedMetadata.wordCount === 'number' ? typedMetadata.wordCount : words,
-		tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : []
+		tags: Array.isArray(typedMetadata.tags) ? typedMetadata.tags : [],
+		category: typedMetadata.category ?? 'Uncategorized'
 	};
 }
 

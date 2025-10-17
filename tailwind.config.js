@@ -100,6 +100,26 @@ module.exports = {
 					warning: '#FACC15',
 					error: '#F87171'
 				}
+			},
+			{
+				'studio-pro-dark': {
+					primary: '#8B5CF6', // A vibrant purple
+					'primary-content': '#FFFFFF',
+					secondary: '#38BDF8', // A bright blue
+					'secondary-content': '#000000',
+					accent: '#F471B5', // A pinkish accent
+					'accent-content': '#000000',
+					neutral: '#1E293B',
+					'neutral-content': '#E2E8F0',
+					'base-100': '#020617', // A very dark blue
+					'base-200': '#0f172a',
+					'base-300': '#1e293b',
+					'base-content': '#E2E8F0',
+					info: '#0EA5E9',
+					success: '#22C55E',
+					warning: '#FACC15',
+					error: '#F87171'
+				}
 			}
 		]
 	}

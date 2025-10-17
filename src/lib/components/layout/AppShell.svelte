@@ -3,7 +3,7 @@
 	import GlobalNav from './GlobalNav.svelte';
 	import SiteFooter from './SiteFooter.svelte';
 
-	type Theme = 'studio-light' | 'studio-dark';
+	type Theme = 'studio-light' | 'studio-dark' | 'studio-pro-dark';
 
 	let theme: Theme = 'studio-light';
 	let userHasPreference = false;
@@ -33,7 +33,7 @@
 
 		const stored = window.localStorage.getItem('theme');
 
-		if (stored === 'studio-light' || stored === 'studio-dark') {
+		if (stored === 'studio-light' || stored === 'studio-dark' || stored === 'studio-pro-dark') {
 			userHasPreference = true;
 			return stored;
 		}
@@ -45,13 +45,13 @@
 
 		if (stored === 'dark') {
 			userHasPreference = true;
-			return 'studio-dark';
+			return 'studio-pro-dark';
 		}
 
 		userHasPreference = false;
 
 		if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
-			return 'studio-dark';
+			return 'studio-pro-dark';
 		}
 
 		return 'studio-light';
@@ -65,7 +65,7 @@
 
 		const handlePreferenceChange = (event: MediaQueryListEvent) => {
 			if (!userHasPreference) {
-				applyTheme(event.matches ? 'studio-dark' : 'studio-light');
+				applyTheme(event.matches ? 'studio-pro-dark' : 'studio-light');
 			}
 		};
 
