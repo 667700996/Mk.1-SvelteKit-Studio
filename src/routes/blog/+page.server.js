@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { getAllPosts } from '$lib/server/content';
 import { buildSeo } from '$lib/utils/seo';
 
@@ -8,7 +10,7 @@ export async function load({ url }) {
 	let allPosts = await getAllPosts();
 
 	if (searchTerm) {
-		allPosts = allPosts.filter(post => {
+		allPosts = allPosts.filter((post) => {
 			return (
 				post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
 				post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -8,9 +8,9 @@
 
 	const resources = [
 		{ href: '/blog', label: 'Articles' },
-		{ href: '/blog/explorations', label: 'Explorations', soon: true },
-		{ href: '/rss.xml', label: 'RSS', soon: true },
-		{ href: '/colophon', label: 'Colophon', soon: true }
+		// { href: '/blog/explorations', label: 'Explorations', soon: true },
+		// { href: '/rss.xml', label: 'RSS', soon: true },
+		// { href: '/colophon', label: 'Colophon', soon: true }
 	];
 
 	const socials = [
@@ -108,7 +108,7 @@
 			<div class="flex gap-4">
 				<a href="/privacy">Privacy</a>
 				<a href="/terms">Terms</a>
-				<a href="/sitemap.xml">Sitemap</a>
+				
 			</div>
 		</div>
 	</div>

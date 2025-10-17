@@ -32,7 +32,13 @@
 		</p>
 
 		<form class="mt-4">
-			<input type="search" name="search" placeholder="Search articles..." class="input input-bordered w-full max-w-xs" value={searchTerm} />
+			<input
+				type="search"
+				name="search"
+				placeholder="Search articles..."
+				class="input input-bordered w-full max-w-xs"
+				value={searchTerm}
+			/>
 		</form>
 	</div>
 </PageSection>
@@ -103,10 +109,17 @@
 
 	<div class="mt-8 flex justify-center">
 		<div class="btn-group">
-			<a href={`/blog?page=${pageNumber - 1}${searchTerm ? `&search=${searchTerm}` : ''}`} class="btn" disabled={pageNumber <= 1}>«</a>
+			<a
+				href={`/blog?page=${pageNumber - 1}${searchTerm ? `&search=${searchTerm}` : ''}`}
+				class="btn"
+				disabled={pageNumber <= 1}>«</a
+			>
 			<button class="btn">Page {pageNumber} of {totalPages}</button>
-			<a href={`/blog?page=${pageNumber + 1}${searchTerm ? `&search=${searchTerm}` : ''}`} class="btn" disabled={pageNumber >= totalPages}>»</a>
+			<a
+				href={`/blog?page=${pageNumber + 1}${searchTerm ? `&search=${searchTerm}` : ''}`}
+				class="btn"
+				disabled={pageNumber >= totalPages}>»</a
+			>
 		</div>
 	</div>
 </PageSection>
-

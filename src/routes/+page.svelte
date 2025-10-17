@@ -213,7 +213,7 @@
 	</div>
 </PageSection>
 
-<PageSection id="collaboration">
+<PageSection id="capabilities">
 	<div class="mx-auto max-w-3xl text-center space-y-3">
 		<span class="eyebrow">Collaboration</span>
 		<h2 class="text-3xl font-semibold sm:text-4xl">

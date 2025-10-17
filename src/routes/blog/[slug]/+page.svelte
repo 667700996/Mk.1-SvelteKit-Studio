@@ -1,7 +1,7 @@
 <script>
 	import PageSection from '$lib/components/ui/PageSection.svelte';
 	import { page } from '$app/stores';
-	import { Twitter, Linkedin, Reddit } from 'svelte-share-buttons-component';
+	
 
 	export let data;
 
@@ -77,20 +77,21 @@
 </PageSection>
 
 <PageSection id="article-body">
-	<article
-		class="prose prose-base max-w-none text-base-content sm:prose-lg lg:prose-xl prose-headings:font-semibold prose-a:text-primary"
-	>
-		<svelte:component this={data.content} />
+	{#await import(`../../../posts/${data.slug}.md`)}
+	<article class="prose prose-base max-w-none text-base-content sm:prose-lg lg:prose-xl prose-headings:font-semibold prose-a:text-primary">
+		<p>Loading...</p>
 	</article>
+{:then mod}
+	<article class="prose prose-base max-w-none text-base-content sm:prose-lg lg:prose-xl prose-headings:font-semibold prose-a:text-primary">
+		<svelte:component this={mod.default} />
+	</article>
+{:catch error}
+	<article class="prose prose-base max-w-none text-base-content sm:prose-lg lg:prose-xl prose-headings:font-semibold prose-a:text-primary">
+		<p>Error: {error.message}</p>
+	</article>
+{/await}
 
-	<div class="mt-8 flex items-center gap-4">
-		<span class="text-sm font-medium text-base-content/70">Share this article:</span>
-		<div class="flex gap-2">
-			<Twitter {url} {title} class="w-8 h-8" />
-			<Linkedin {url} {title} class="w-8 h-8" />
-			<Reddit {url} {title} class="w-8 h-8" />
-		</div>
-	</div>
+	
 </PageSection>
 
 <PageSection id="article-cta" tone="subtle" padding="compact">

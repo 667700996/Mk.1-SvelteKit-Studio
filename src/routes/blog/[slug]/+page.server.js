@@ -12,7 +12,6 @@ export async function load({ params }) {
 	const { component, ...metadata } = post;
 
 	return {
-		content: component,
 		...metadata,
 		seo: buildSeo({
 			title: metadata.title,
