@@ -3,7 +3,9 @@ import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
 	const { category } = params;
-	const posts = (await getAllPosts()).filter((post) => post.category?.toLowerCase() === category.toLowerCase());
+	const posts = (await getAllPosts()).filter(
+		(post) => post.category?.toLowerCase() === category.toLowerCase()
+	);
 
 	if (!posts.length) {
 		throw error(404, `No posts found in category: ${category}`);

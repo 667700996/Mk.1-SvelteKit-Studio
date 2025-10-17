@@ -10,10 +10,9 @@
 
 	const navLinks = [
 		{ href: '/', label: 'Home' },
+		{ href: '/work', label: 'Work' },
 		{ href: '/about', label: 'About' },
-		{ href: '/blog', label: 'Journal' },
-		{ href: '/#capabilities', label: 'Capabilities' },
-		{ href: '/#latest', label: 'Latest' }
+		{ href: '/blog', label: 'Journal' }
 	];
 
 	let mobileOpen = false;

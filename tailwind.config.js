@@ -1,7 +1,9 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
+import daisyui from 'daisyui';
+import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
@@ -57,7 +59,7 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [require('daisyui'), require('@tailwindcss/typography')],
+	plugins: [daisyui, typography],
 	daisyui: {
 		logs: false,
 		themes: [

@@ -27,37 +27,6 @@
 		}
 	];
 
-	const featureAreas = [
-		{
-			eyebrow: 'Narrative',
-			title: 'Signature web experiences',
-			description:
-				'Launch pages, editorial storytelling, and product marketing ecosystems that resonate and convert.',
-			bullets: [
-				'Immersive scrollytelling',
-				'Advanced animations & interactions',
-				'Responsive art direction'
-			],
-			link: '/#collaboration'
-		},
-		{
-			eyebrow: 'Systems',
-			title: 'Design systems & tooling',
-			description:
-				'Scalable component libraries, design tokens, and developer experience pipelines tailored to your team.',
-			bullets: ['Design + dev parity', 'Accessible component suites', 'Documentation & education'],
-			link: '/about'
-		},
-		{
-			eyebrow: 'Content',
-			title: 'Knowledge hubs & blogs',
-			description:
-				'From developer journals to community platforms, we curate modular publishing experiences.',
-			bullets: ['Content modeling & taxonomy', 'Editorial workflows', 'SEO foundations'],
-			link: '/blog'
-		}
-	];
-
 	const collaborationModes = [
 		{
 			title: 'Embedded partner',
@@ -88,7 +57,7 @@
 	function formatDate(value) {
 		try {
 			return dateFormatter.format(new Date(value));
-		} catch (error) {
+		} catch {
 			return value;
 		}
 	}
@@ -151,51 +120,41 @@
 	</div>
 </PageSection>
 
-<PageSection id="capabilities">
+<PageSection id="featured-work">
 	<div class="mx-auto max-w-3xl text-center space-y-4">
-		<span class="eyebrow">Capabilities</span>
-		<h2 class="text-3xl font-semibold sm:text-4xl">
-			Companion for product launches, storytelling, and systems thinking.
-		</h2>
+		<span class="eyebrow">Featured Work</span>
+		<h2 class="text-3xl font-semibold sm:text-4xl">A selection of our favorite projects.</h2>
 		<p class="text-base text-base-content/70 sm:text-lg">
-			We design end-to-end journeys—from the strategy that anchors your idea to the shippable UI
-			that delights real users.
+			We take pride in our work. Here are a few of our favorite projects.
 		</p>
 	</div>
 
 	<div class="grid gap-6 lg:grid-cols-3">
-		{#each featureAreas as feature}
-			<article class="surface-card h-full text-left">
-				<span class="eyebrow text-primary/80">{feature.eyebrow}</span>
-				<h3 class="text-2xl font-semibold">{feature.title}</h3>
-				<p class="mt-3 text-sm text-base-content/70">{feature.description}</p>
-				<ul class="mt-5 space-y-2 text-sm text-base-content/70">
-					{#each feature.bullets as bullet}
-						<li class="flex items-start gap-2">
-							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary/70"></span>
-							<span>{bullet}</span>
-						</li>
-					{/each}
-				</ul>
-				<a href={feature.link} class="link-cta mt-6">
-					Explore more
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-4 w-4"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
-							d="M17 8l4 4m0 0l-4 4m4-4H3"
+		{#each data.projects as project}
+			<a
+				href={`/work/${project.slug}`}
+				class="surface-card group flex h-full flex-col justify-between"
+			>
+				<div class="space-y-3">
+					<div class="overflow-hidden rounded-lg">
+						<img
+							src={project.image}
+							alt={project.title}
+							class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
-					</svg>
-				</a>
-			</article>
+					</div>
+					<h3 class="text-xl font-semibold text-base-content group-hover:text-primary">
+						{project.title}
+					</h3>
+					<p class="text-sm text-base-content/70">{project.description}</p>
+				</div>
+				<span class="link-cta mt-6">View Project</span>
+			</a>
 		{/each}
+	</div>
+
+	<div class="mt-8 text-center">
+		<a href="/work" class="btn btn-primary btn-lg">View all work</a>
 	</div>
 </PageSection>
 

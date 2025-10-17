@@ -12,7 +12,7 @@
 	function formatDate(value) {
 		try {
 			return dateFormatter.format(new Date(value));
-		} catch (error) {
+		} catch {
 			return value;
 		}
 	}

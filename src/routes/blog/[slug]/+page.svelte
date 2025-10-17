@@ -1,9 +1,13 @@
 <script>
 	import PageSection from '$lib/components/ui/PageSection.svelte';
+	import { page } from '$app/stores';
+	import { Twitter, Linkedin, Reddit } from 'svelte-share-buttons-component';
 
 	export let data;
 
 	const tags = data.tags ?? [];
+	const url = $page.url.href;
+	const title = data.title;
 
 	const dateFormatter = new Intl.DateTimeFormat('en', {
 		year: 'numeric',
@@ -14,7 +18,7 @@
 	function formatDate(value) {
 		try {
 			return dateFormatter.format(new Date(value));
-		} catch (error) {
+		} catch {
 			return value;
 		}
 	}
@@ -78,6 +82,15 @@
 	>
 		<svelte:component this={data.content} />
 	</article>
+
+	<div class="mt-8 flex items-center gap-4">
+		<span class="text-sm font-medium text-base-content/70">Share this article:</span>
+		<div class="flex gap-2">
+			<Twitter {url} {title} class="w-8 h-8" />
+			<Linkedin {url} {title} class="w-8 h-8" />
+			<Reddit {url} {title} class="w-8 h-8" />
+		</div>
+	</div>
 </PageSection>
 
 <PageSection id="article-cta" tone="subtle" padding="compact">

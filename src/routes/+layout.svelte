@@ -17,7 +17,8 @@
 	$: currentSeo = data?.seo ?? buildSeo({ path: $page.url.pathname });
 	$: jsonLdMarkup =
 		currentSeo?.jsonLd != null
-			? `<script type="application/ld+json">${serializeJsonLd(currentSeo.jsonLd)}<\/script>`
+			? /* eslint-disable-next-line no-useless-escape */
+				`<script type="application/ld+json">${serializeJsonLd(currentSeo.jsonLd)}<\/script>`
 			: '';
 </script>
 
@@ -38,6 +39,7 @@
 	{#each currentSeo.twitter as twitter}
 		<meta name={twitter.name} content={twitter.content} />
 	{/each}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html jsonLdMarkup}
 </svelte:head>
 
