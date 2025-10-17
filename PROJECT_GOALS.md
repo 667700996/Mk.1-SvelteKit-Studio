@@ -1,1 +1,1 @@
-현재 웹사이트를 블로그, 뉴스, 미디어 등 모든 유형의 온라인 포트폴리오의 대표 표준 모델로 발전시킬 수 있도록 고도화 및 품질 강화를 추진합니다.
+To advance and enhance the quality of the current website to develop it as a representative standard model for all types of online portfolios, such as blogs, news, and media.
